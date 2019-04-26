@@ -1,0 +1,45 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/me/main",
+    "pages/books/main",
+    "pages/comments/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0b988f",
+    "navigationBarTitleText": "指南针图书",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "backgroundColor": "#eee",
+    "selectedColor": "#333",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/books/main",
+        "text": "图书",
+        "iconPath": "static/tabs/books.png",
+        "selectedIconPath": "static/tabs/books2.png"
+      },
+      {
+        "text": "评论",
+        "pagePath": "pages/comments/main",
+        "iconPath": "static/tabs/comments.png",
+        "selectedIconPath": "static/tabs/comments2.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/me/main",
+        "iconPath": "static/tabs/me.png",
+        "selectedIconPath": "static/tabs/me2.png"
+      }
+    ],
+    "position": "bottom"
+  },
+  "networkTimeout": {
+    "request": 500000,
+    "downloadFile": 500000
+  }
+}
