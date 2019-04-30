@@ -1,16 +1,16 @@
 <template>
   <div class="container">
     <div>
-    	<div v-if="userInfo.nickName" class="userinfo">
-			  <img :src="userInfo.avatarUrl">
-			  <text>{{userInfo.nickName}}</text>
-			</div>
-			<div v-if="!userInfo.nickName" class="userinfo">
-			  <img src="http://image.shengxinjing.cn/rate/unlogin.png">
-			  <button open-type="getUserInfo" @getuserinfo="onGetUserinfo">登录</button>
-			</div>
+      <div v-if="userInfo.nickName" class="userinfo">
+        <img :src="userInfo.avatarUrl">
+        <text>{{userInfo.nickName}}</text>
+      </div>
+      <div v-if="!userInfo.nickName" class="userinfo">
+        <img src="http://image.shengxinjing.cn/rate/unlogin.png">
+        <button open-type="getUserInfo" @getuserinfo="onGetUserinfo" type="primary">登录</button>
+      </div>
     </div>
-    <button @click="scanBook" type="primary" size="default" class="btn">添加图书</button>
+    <button v-if="userInfo.openid" @click="scanBook" type="primary" size="default" class="btn">添加图书</button>
     <YearProgress></YearProgress>
   </div>
 </template>
@@ -22,10 +22,10 @@ import YearProgress from "@/components/YearProgress";
 //import config from "@/config";
 
 export default {
-	components: {
+  components: {
     YearProgress
-	},
-	
+  },
+
   data() {
     return {
       userInfo: wx.getStorageSync("userInfo") || {}
@@ -47,13 +47,18 @@ export default {
       });
       console.log(e);
     },
-    
-    scanBook(){
-    	wx.scanCode({
+
+    async addBook(isbn) {
+      console.log(isbn);
+      // 9787536692930
+      // https://book.douban.com/subject/2567698/
+    },
+
+    scanBook() {
+      wx.scanCode({
         success: res => {
-          if (res.result) {
-            console.log(res.result);
-          }
+          const isbn = res.result;
+          this.addBook(isbn);
         }
       });
     }
@@ -68,21 +73,21 @@ export default {
   margin: 100rpx;
 }
 
-.userinfo>img {
+.userinfo > img {
   width: 200rpx;
   height: 200rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
 
-.userinfo>text {
-	display: flex;
+.userinfo > text {
+  display: flex;
   justify-content: center;
 }
- 
-.btn{
-	width: 100%;
-	margin-bottom:10rpx;
-	background: #0b988f;
+
+.btn {
+  width: 100%;
+  margin-bottom: 10rpx;
+  background: #0b988f;
 }
 </style>
