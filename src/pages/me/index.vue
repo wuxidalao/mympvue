@@ -10,7 +10,7 @@
 			  <button open-type="getUserInfo" @getuserinfo="onGetUserinfo">登录</button>
 			</div>
     </div>
-    <button @click="scanBook" type="primary" size="default">添加图书</button>
+    <button @click="scanBook" type="primary" size="default" class="btn">添加图书</button>
     <YearProgress></YearProgress>
   </div>
 </template>
@@ -65,12 +65,12 @@ export default {
 
 <style scoped>
 .userinfo {
-  margin-top: 100rpx;
+  margin: 100rpx;
 }
 
 .userinfo>img {
-  width: 150rpx;
-  height: 150rpx;
+  width: 200rpx;
+  height: 200rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
@@ -81,8 +81,8 @@ export default {
 }
  
 .btn{
-	width: 400rpx;
-	height: 200rpx;
-	background: #0000FF;
+	width: 100%;
+	margin-bottom:10rpx;
+	background: #0b988f;
 }
 </style>
