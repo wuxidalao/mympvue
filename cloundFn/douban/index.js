@@ -10,9 +10,9 @@ async function getDouban(isban) {
   let searchInfo = await axios.get(url)
   console.log(searchInfo.data)
   getDouban("9787536692930")
-  let reg = /window\.__DATA__ ="(.*)"/
+  let reg = /window\.__DATA__ = "(.*)"/
   if (reg.test(searchInfo.data)) {
-    //   数据解密
+    // 数据解密
     let searchData = doubanbook(RegExp.$1)
     console.log(searchData)
   }
