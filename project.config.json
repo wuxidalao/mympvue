@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"miniprogramRoot": "dist/wx/",
-	"cloudfunctionRoot": "cloundFn",
+	"cloudfunctionRoot": "cloundFn/",
 	"compileType": "miniprogram",
 	"appid": "wxd0dd59167d6221ff",
 	"projectname": "mympvue",
