@@ -21,6 +21,9 @@ import YearProgress from "@/components/YearProgress";
 //import { showSuccess } from "@/util";
 //import config from "@/config";
 
+// 获取默认环境的数据库的引用
+const db = wx.cloud.database();
+
 export default {
   components: {
     YearProgress
@@ -52,6 +55,22 @@ export default {
       console.log(isbn);
       // 9787536692930
       // https://book.douban.com/subject/2567698/
+      const { result } = await wx.cloud.callFunction({
+        name: "douban",
+        data: { isbn }
+      });
+      result.count = 0;
+      result.userInfo = this.userInfo;
+      const add = await db.collection("imoocbooks").addBook({
+        data: result
+      });
+      if (add._id) {
+        wx.showModal({
+          title: "添加成功",
+          content: "《${result.title}》添加成功"
+        });
+      }
+      console.log(bookinfo);
     },
 
     scanBook() {
