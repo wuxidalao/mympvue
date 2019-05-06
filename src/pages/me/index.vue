@@ -53,8 +53,6 @@ export default {
 
     async addBook(isbn) {
       console.log(isbn);
-      // 9787536692930
-      // https://book.douban.com/subject/2567698/
       const { result } = await wx.cloud.callFunction({
         name: "douban",
         data: { isbn }
