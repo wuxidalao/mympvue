@@ -59,7 +59,7 @@ export default {
       });
       result.count = 0;
       result.userInfo = this.userInfo;
-      const add = await db.collection("imoocbooks").addBook({
+      const add = await db.collection("test").addBook({
         data: result
       });
       if (add._id) {

@@ -1,8 +1,8 @@
 {
   "cloud": true,
   "pages": [
-    "pages/me/main",
     "pages/books/main",
+    "pages/me/main",
     "pages/comments/main"
   ],
   "window": {
